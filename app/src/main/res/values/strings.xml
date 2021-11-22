@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">CovidAwareness</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sign_in">Sign in</string>
+    <string name="register">Register</string>
+    <string name="email_email_com">Example@email.com</string>
+    <string name="login_covid_title">Covid</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="country">Country</string>
+    <string name="state">State</string>
+    <string name="city">City</string>
+    <string name="home">home</string>
+    <string name="news">news</string>
+    <string name="news_title">News</string>
+    <string name="map">map</string>
+    <string name="user_info">User Info</string>
+    <string name="welcome">Welcome!</string>
+    <string name="covid">Covid</string>
+    <string name="covid_cases">Covid Cases</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="address">Address</string>
+    <string name="vaccination_card">Vaccination Card</string>
+    <string name="change_password">Change Password</string>
+    <string name="positive">Positive</string>
+    <string name="negative">Negative</string>
+    <string name="deaths">Deaths</string>
+    <string name="us_cases">US Cases</string>
+    <string name="forgot_username">Forgot username?</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="password_error">must be at least 8 characters</string>
+    <string name="all_fields_required">All fields required!</string>
+    <string name="log_out">Log Out</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="edit_profile">Edit Profile</string>
+</resources>

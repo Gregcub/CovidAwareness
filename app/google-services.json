@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "187100243978",
+    "project_id": "covid-awareness-d3dd1",
+    "storage_bucket": "covid-awareness-d3dd1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:187100243978:android:da500b8cbf9b610b8717f3",
+        "android_client_info": {
+          "package_name": "com.gac5206.covidawareness"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "187100243978-ecne6c2353ea7hbmja4ccrqbjfevvhlh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKso6O3DhLxsswM1GxEVDjCp9lYM_V_60"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "187100243978-ecne6c2353ea7hbmja4ccrqbjfevvhlh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
