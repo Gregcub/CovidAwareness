@@ -52,7 +52,7 @@ public class NewsApiAdapter extends RecyclerView.Adapter<NewsApiAdapter.ViewHold
         });
 
 
-        holder.mPublished.setText("Published At: "+newsArrayList.get(position).getPublishedAt());
+        holder.mPublished.setText("Published: "+newsArrayList.get(position).getPublishedAt());
         holder.mAuthor.setText(newsArrayList.get(position).getAuthor());
         holder.mTitle.setText(newsArrayList.get(position).getTitle());
         holder.mDescription.setText(newsArrayList.get(position).getDescription());

@@ -3,15 +3,20 @@ package com.gac5206.covidawareness.news.fragments;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,8 +37,7 @@ public class SavedNewsFragment extends Fragment{
     private NewsViewModel newsViewModel;
     RecyclerView recyclerView;
     NewsAdapter newsAdapter;
-    ArrayList<News> news;
-
+    List<News> news;
     TextView mTitle, mPublished, mDescription;
     ImageView mImageView;
 
@@ -55,26 +59,15 @@ public class SavedNewsFragment extends Fragment{
         recyclerView = view.findViewById(R.id.saved_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
-        newsAdapter = new NewsAdapter();
+        newsAdapter = new NewsAdapter(requireActivity());
         recyclerView.setAdapter(newsAdapter);
+
 
 
         mTitle = view.findViewById(R.id.title);
         mDescription = view.findViewById(R.id.description);
         mPublished = view.findViewById(R.id.published);
         mImageView = view.findViewById(R.id.article_img);
-
-
-//        if (getIntent().hasExtra("url")){
-//
-//            String urls = intent.getStringExtra("url");
-////            Toast.makeText(getActivity(), urls, Toast.LENGTH_SHORT).show();
-//            mTitle.setText(intent.getStringExtra("title"));
-//            mDescription.setText(intent.getStringExtra("description"));
-//            mPublished.setText(intent.getStringExtra("published"));
-//            Glide.with(this)
-//                    .load(intent.getStringExtra("image"))
-//                    .into(mImageView);
 
 
 
@@ -85,14 +78,27 @@ public class SavedNewsFragment extends Fragment{
         newsViewModel.getNews().observe(requireActivity(), new Observer<List<News>>(){
 
             @Override
-            public void onChanged(List<News> news) {
-
-
+            public void onChanged(@Nullable List<News> news) {
                 //update recyclerview
+
                 newsAdapter.setNews(news);
-//                Toast.makeText(requireContext(), "OnChanged", Toast.LENGTH_LONG).show();
+//                Toast.makeText(requireContext(), news.toString(), Toast.LENGTH_LONG).show();
             }
         });
+        
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                //Not using
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                newsViewModel.delete(newsAdapter.getNewsAt(viewHolder.getAdapterPosition()));
+                Toast.makeText(requireActivity(), "Note Deleted!", Toast.LENGTH_LONG).show();
+            }
+        }).attachToRecyclerView(recyclerView);
 
 
 

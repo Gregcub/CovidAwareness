@@ -20,6 +20,7 @@
 <!--            android:layout_below="@id/title"-->
 <!--            android:text="Source" />-->
 
+
         <TextView
             android:id="@+id/author"
             android:layout_width="wrap_content"

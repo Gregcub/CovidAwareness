@@ -41,8 +41,8 @@ public class WebActivity extends AppCompatActivity {
     NewsAdapter newsAdapter;
     NewsViewModel newsViewModel;
     WebView webView;
-
     String url, author, title, description, published, imageUrl;
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -62,7 +62,7 @@ public class WebActivity extends AppCompatActivity {
         saveNews.setOnClickListener(this::OnClick);
         closeNews.setOnClickListener(this::OnClick);
 
-        newsAdapter = new NewsAdapter();
+        newsAdapter = new NewsAdapter(this);
         adapter = new NewsApiAdapter(this, mNewsArrayList);
 
 
@@ -89,6 +89,10 @@ public class WebActivity extends AppCompatActivity {
                 break;
             case R.id.close_news:
                 startActivity(new Intent(this,NewsActivity.class));
+//                if(getFragmentManager().getBackStackEntryCount() > 0){
+//                    getFragmentManager().popBackStack();
+//                }
+
                 Toast.makeText(this, "Closed news!", Toast.LENGTH_LONG).show();
                 break;
 

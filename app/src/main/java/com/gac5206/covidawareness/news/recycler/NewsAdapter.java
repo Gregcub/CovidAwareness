@@ -1,6 +1,7 @@
 package com.gac5206.covidawareness.news.recycler;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,10 +11,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.gac5206.covidawareness.R;
+import com.gac5206.covidawareness.news.WebActivity;
 import com.gac5206.covidawareness.news.room.News;
 
 import java.util.ArrayList;
@@ -21,13 +24,12 @@ import java.util.List;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
     private Context mContext;
-    private List<News> news;
+    private List<News> news = new ArrayList<>();
 
 
-//    public NewsAdapter(Context context, ArrayList<News> news){
-//        this.mContext = context;
-//        this.news = news;
-//    }
+    public NewsAdapter(Context context){
+        this.mContext = context;
+    }
 
     @NonNull
     @Override
@@ -40,13 +42,24 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull NewsHolder holder, int position) {
+        News currentNews = news.get(position);
 
-            News currentNews = news.get(position);
+
+        holder.cardView.setOnClickListener(view -> {
+            Intent intent = new Intent(mContext, WebActivity.class);
+            intent.putExtra("url", currentNews.getUrl());
+            mContext.startActivity(intent);
+        });
+
+
 //        holder.newsSource.setText(currentNews.getSource());
-            holder.newsPublished.setText(currentNews.getSource());
-            holder.newsTitle.setText(currentNews.getSource());
-            holder.newsDescription.setText(currentNews.getSource());
-            Glide.with(mContext).load(news.get(position).getUrlToImage()).into(holder.newsImage);
+            holder.newsPublished.setText("Published: " + currentNews.getPublished());
+            holder.newsTitle.setText(currentNews.getTitle());
+            holder.newsAuthor.setText(currentNews.getAuthor());
+            holder.newsDescription.setText(currentNews.getDescription());
+            Glide.with(mContext)
+                    .load(news.get(position).getUrlToImage())
+                    .into(holder.newsImage);
 
 
 
@@ -55,6 +68,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
 
     @Override
     public int getItemCount() {
+
         return news.size();
     }
 
@@ -63,21 +77,30 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
         notifyDataSetChanged();
     }
 
+    public News getNewsAt(int position){
+        return news.get(position);
+    }
+
 
     static class NewsHolder extends RecyclerView.ViewHolder {
 //        private TextView newsSource;
         private TextView newsPublished;
         private TextView newsTitle;
         private TextView newsDescription;
+        private TextView newsAuthor;
+        private TextView id;
         private ImageView newsImage;
+        private CardView cardView;
 
 
         public NewsHolder(@NonNull View itemView) {
             super(itemView);
 
 //            newsSource = itemView.findViewById(R.id.source);
+            cardView = itemView.findViewById(R.id.news_card);
             newsPublished = itemView.findViewById(R.id.published);
             newsTitle = itemView.findViewById(R.id.title);
+            newsAuthor = itemView.findViewById(R.id.author);
             newsDescription = itemView.findViewById(R.id.description);
             newsImage = itemView.findViewById(R.id.article_img);
 

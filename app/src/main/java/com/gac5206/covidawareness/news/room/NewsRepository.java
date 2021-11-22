@@ -60,7 +60,7 @@ public class NewsRepository {
 
         @Override
         protected Void doInBackground(News... news) {
-            newsDao.insertNews(news[0]);
+            newsDao.updateNews(news[0]);
             return null;
         }
 
@@ -76,7 +76,7 @@ public class NewsRepository {
 
         @Override
         protected Void doInBackground(News... news) {
-            newsDao.insertNews(news[0]);
+            newsDao.deleteNews(news[0]);
             return null;
         }
 

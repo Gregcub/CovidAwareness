@@ -52,7 +52,6 @@ public abstract class NewsDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            newsDao.insertNews(new News("","","","","","","",""));
             return null;
         }
     }
