@@ -25,6 +25,7 @@
 
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/login_title">
@@ -34,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="15dp">
+            android:padding="5dp">
 
             <TextView
                 android:id="@+id/state"
@@ -43,8 +44,7 @@
                 android:gravity="center_horizontal"
                 android:text="@string/us_cases"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
 
 
             <LinearLayout
@@ -66,16 +66,15 @@
                         android:gravity="center_horizontal"
                         android:text="@string/positive"
                         android:textSize="20sp"
-                        android:textStyle="bold"
-                        />
+                        android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/us_positive_cases"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:text="@string/positive"
-                        android:textSize="15sp"
-                        />
+                        android:textSize="15sp" />
 
 
                 </LinearLayout>
@@ -93,19 +92,19 @@
                         android:gravity="center_horizontal"
                         android:text="@string/negative"
                         android:textSize="20sp"
-                        android:textStyle="bold"
-                        />
+                        android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/us_negative_cases"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:text="@string/negative"
-                        android:textSize="15sp"
-                        />
+                        android:textSize="15sp" />
 
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -118,16 +117,15 @@
                         android:gravity="center_horizontal"
                         android:text="@string/deaths"
                         android:textSize="20sp"
-                        android:textStyle="bold"
-                        />
+                        android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/us_deaths"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:text="@string/deaths"
-                        android:textSize="15sp"
-                        />
+                        android:textSize="15sp" />
 
 
                 </LinearLayout>
@@ -141,12 +139,12 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/covid_recycler"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="380dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_title"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
         app:layout_constraintVertical_bias="0.978"
         tools:layout_editor_absoluteX="0dp"
-        tools:listitem="@layout/covid_item"/>
+        tools:listitem="@layout/covid_item" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
