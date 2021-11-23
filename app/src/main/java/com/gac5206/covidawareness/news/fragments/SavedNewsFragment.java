@@ -80,9 +80,7 @@ public class SavedNewsFragment extends Fragment{
             @Override
             public void onChanged(@Nullable List<News> news) {
                 //update recyclerview
-
                 newsAdapter.setNews(news);
-//                Toast.makeText(requireContext(), news.toString(), Toast.LENGTH_LONG).show();
             }
         });
         
@@ -95,8 +93,9 @@ public class SavedNewsFragment extends Fragment{
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                //Deleting The news with swipe
                 newsViewModel.delete(newsAdapter.getNewsAt(viewHolder.getAdapterPosition()));
-                Toast.makeText(requireActivity(), "Note Deleted!", Toast.LENGTH_LONG).show();
+                Toast.makeText(requireActivity(), "News Deleted!", Toast.LENGTH_LONG).show();
             }
         }).attachToRecyclerView(recyclerView);
 

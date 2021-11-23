@@ -1,4 +1,4 @@
-package com.gac5206.covidawareness;
+package com.gac5206.covidawareness.news;
 
 import com.gac5206.covidawareness.news.api.NewsAPIModel;
 

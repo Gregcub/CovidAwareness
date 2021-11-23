@@ -3,9 +3,14 @@ package com.gac5206.covidawareness.news.room;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Index;
+import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName="articles")
+import java.util.List;
+
+@Entity(tableName="articles", indices = {@Index(value = {"title","published"}, unique = true)})
 public class News {
 
     @PrimaryKey(autoGenerate = true)

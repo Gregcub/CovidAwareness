@@ -1,4 +1,4 @@
-package com.gac5206.covidawareness.news;
+package com.gac5206.covidawareness.news.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;

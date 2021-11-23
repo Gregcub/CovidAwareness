@@ -1,4 +1,4 @@
-package com.gac5206.covidawareness;
+package com.gac5206.covidawareness.covid;
 
 public class CovidItems {
     private String mstate, mpositive, mnegative, mdeaths;

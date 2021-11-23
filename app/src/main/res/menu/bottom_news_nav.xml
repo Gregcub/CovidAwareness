@@ -13,9 +13,9 @@
         android:icon="@drawable/ic_baseline_favorite_24"
         />
     <item
-        android:id="@+id/searchNewsFragment"
-        android:title="Search News"
-        android:icon="@drawable/ic_baseline_search_24"
+        android:id="@+id/main_activity"
+        android:title="Home"
+        android:icon="@drawable/bottom_nav_home"
         />
 
 </menu>

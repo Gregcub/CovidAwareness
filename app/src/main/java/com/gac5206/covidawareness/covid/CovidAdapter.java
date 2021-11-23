@@ -1,14 +1,16 @@
-package com.gac5206.covidawareness;
+package com.gac5206.covidawareness.covid;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.gac5206.covidawareness.R;
+import com.gac5206.covidawareness.covid.CovidHolder;
+import com.gac5206.covidawareness.covid.CovidItems;
 
 import java.util.ArrayList;
 

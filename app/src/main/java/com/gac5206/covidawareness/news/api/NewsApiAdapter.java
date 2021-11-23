@@ -14,8 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.gac5206.covidawareness.R;
-import com.gac5206.covidawareness.news.WebActivity;
-import com.gac5206.covidawareness.news.fragments.SavedNewsFragment;
+import com.gac5206.covidawareness.news.activities.WebActivity;
 
 import java.util.ArrayList;
 

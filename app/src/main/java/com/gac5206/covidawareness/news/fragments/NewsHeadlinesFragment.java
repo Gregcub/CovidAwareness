@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.gac5206.covidawareness.news.api.APIUtil;
-import com.gac5206.covidawareness.MainNews;
+import com.gac5206.covidawareness.news.MainNews;
 import com.gac5206.covidawareness.news.api.NewsAPIModel;
 import com.gac5206.covidawareness.news.api.NewsApiAdapter;
 import com.gac5206.covidawareness.R;

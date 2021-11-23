@@ -1,10 +1,12 @@
-package com.gac5206.covidawareness;
+package com.gac5206.covidawareness.covid;
 
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.gac5206.covidawareness.R;
 
 public class CovidHolder extends RecyclerView.ViewHolder {
 

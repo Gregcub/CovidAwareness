@@ -11,8 +11,8 @@
         android:label="fragment_news_headlines"
         tools:layout="@layout/fragment_news_headlines" >
         <action
-            android:id="@+id/action_newsHeadlinesFragment_to_articleFragment"
-            app:destination="@id/articleFragment"/>
+            android:id="@+id/action_newsHeadlinesFragment_to_main_screen"
+            app:destination="@id/main_activity" />
     </fragment>
     <fragment
         android:id="@+id/savedNewsFragment"
@@ -20,21 +20,22 @@
         android:label="fragment_saved_news"
         tools:layout="@layout/fragment_saved_news" >
         <action
-            android:id="@+id/action_savedNewsFragment_to_articleFragment"
-            app:destination="@id/articleFragment" />
+            android:id="@+id/action_savedNewsFragment_to_main_screen"
+            app:destination="@id/main_activity" />
     </fragment>
-    <fragment
-        android:id="@+id/searchNewsFragment"
-        android:name="com.gac5206.covidawareness.news.fragments.SearchNewsFragment"
-        android:label="fragment_search_news"
-        tools:layout="@layout/fragment_search_news" >
-        <action
-            android:id="@+id/action_searchNewsFragment_to_articleFragment"
-            app:destination="@id/articleFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/articleFragment"
-        android:name="com.gac5206.covidawareness.news.fragments.ArticleFragment"
-        android:label="fragment_article"
-        tools:layout="@layout/fragment_article" />
+<!--    <fragment-->
+<!--        android:id="@+id/searchNewsFragment"-->
+<!--        android:name="com.gac5206.covidawareness.news.fragments.SearchNewsFragment"-->
+<!--        android:label="fragment_search_news"-->
+<!--        tools:layout="@layout/fragment_search_news" >-->
+<!--        <action-->
+<!--            android:id="@+id/action_searchNewsFragment_to_articleFragment"-->
+<!--            app:destination="@id/articleFragment" />-->
+<!--    </fragment>-->
+    <activity
+        android:id="@+id/main_activity"
+        android:name="com.gac5206.covidawareness.MainActivity"
+        tools:layout="@layout/activity_main">
+    </activity>
+
 </navigation>

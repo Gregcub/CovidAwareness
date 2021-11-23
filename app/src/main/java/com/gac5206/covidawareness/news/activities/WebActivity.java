@@ -1,4 +1,4 @@
-package com.gac5206.covidawareness.news;
+package com.gac5206.covidawareness.news.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,23 +8,16 @@ import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.gac5206.covidawareness.R;
 import com.gac5206.covidawareness.news.api.NewsAPIModel;
 import com.gac5206.covidawareness.news.api.NewsApiAdapter;
-import com.gac5206.covidawareness.news.fragments.NewsHeadlinesFragment;
 import com.gac5206.covidawareness.news.recycler.NewsAdapter;
 import com.gac5206.covidawareness.news.room.News;
 import com.gac5206.covidawareness.news.room.NewsDao;
-import com.gac5206.covidawareness.news.room.NewsRepository;
 import com.gac5206.covidawareness.news.room.NewsViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -88,7 +81,7 @@ public class WebActivity extends AppCompatActivity {
                 saveArticle();
                 break;
             case R.id.close_news:
-                startActivity(new Intent(this,NewsActivity.class));
+                startActivity(new Intent(this, NewsActivity.class));
 //                if(getFragmentManager().getBackStackEntryCount() > 0){
 //                    getFragmentManager().popBackStack();
 //                }

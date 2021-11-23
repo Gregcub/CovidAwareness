@@ -2,13 +2,11 @@ package com.gac5206.covidawareness.news.recycler;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -16,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.gac5206.covidawareness.R;
-import com.gac5206.covidawareness.news.WebActivity;
+import com.gac5206.covidawareness.news.activities.WebActivity2;
 import com.gac5206.covidawareness.news.room.News;
 
 import java.util.ArrayList;
@@ -46,7 +44,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
 
 
         holder.cardView.setOnClickListener(view -> {
-            Intent intent = new Intent(mContext, WebActivity.class);
+            Intent intent = new Intent(mContext, WebActivity2.class);
             intent.putExtra("url", currentNews.getUrl());
             mContext.startActivity(intent);
         });

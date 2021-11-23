@@ -1,6 +1,6 @@
 package com.gac5206.covidawareness.news.api;
 
-import com.gac5206.covidawareness.MainNews;
+import com.gac5206.covidawareness.news.MainNews;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

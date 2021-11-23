@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistrationActivity"
+    tools:context=".login.RegistrationActivity"
     android:background="@drawable/gradient_background"
     >
 
@@ -145,7 +145,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_title"
         app:layout_constraintVertical_bias="0.978"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:layout_editor_absoluteX="0dp"
+        tools:listitem="@layout/covid_item"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

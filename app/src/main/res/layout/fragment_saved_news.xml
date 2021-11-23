@@ -13,7 +13,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/saved_recycler"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="515dp"
             tools:listitem="@layout/news_item"
             />
 

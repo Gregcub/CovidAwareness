@@ -1,10 +1,9 @@
-package com.gac5206.covidawareness;
+package com.gac5206.covidawareness.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -14,10 +13,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.room.ColumnInfo;
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
 
+import com.gac5206.covidawareness.MainActivity;
+import com.gac5206.covidawareness.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -68,7 +66,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
 
             case R.id.forgot_password:
-                startActivity(new Intent(this,ForgotPassword.class));
+                startActivity(new Intent(this, ForgotPassword.class));
                 break;
 
 
