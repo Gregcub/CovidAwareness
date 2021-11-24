@@ -74,31 +74,6 @@
             />
 
 
-        <!--        <TextView-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:text="@string/change_password"-->
-        <!--            android:textColor="@color/white"-->
-        <!--            android:textSize="20sp"-->
-        <!--            />-->
-
-        <!--        <TextView-->
-        <!--            android:id="@+id/password"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:text="User change password"-->
-        <!--            android:textColor="@color/white"-->
-        <!--            android:textSize="20sp"-->
-        <!--            />-->
-        <!--        <TextView-->
-        <!--            android:id="@+id/password_confirm"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:text="User password confirm"-->
-        <!--            android:textColor="@color/white"-->
-        <!--            android:textSize="20sp"-->
-        <!--            />-->
-
 
         <TextView
             android:layout_width="wrap_content"
@@ -126,6 +101,43 @@
 
 
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/userinfo_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/find_places_near_me"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            />
+
+        <Button
+            android:id="@+id/test_centers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/testing_centers"
+            />
+
+        <Button
+            android:id="@+id/vac_centers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/vaccination_centers"
+            />
+
+
+    </LinearLayout>
+
+
 
 
 

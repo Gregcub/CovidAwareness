@@ -4,14 +4,53 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".login.LoginActivity">
+    android:layout_height="match_parent">
+
 
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/map_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
+    <fragment
+        android:id="@+id/map"
+        class="com.google.android.gms.maps.MapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+<!--        <fragment-->
+<!--            android:id="@+id/map_places"-->
+<!--            class="com.google.android.libraries.places.compat.ui.PlaceAutocompleteFragment"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"/>-->
+
+
+        <Button
+            android:id="@+id/test_centers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/testing_centers" />
+
+        <Button
+            android:id="@+id/vac_centers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/vaccination_centers" />
+
+    </LinearLayout>
+
+
 
 
 

@@ -36,4 +36,8 @@
     <string name="enter_email">Enter Email</string>
     <string name="reset_password">Reset Password</string>
     <string name="edit_profile">Edit Profile</string>
+    <string name="find_places_near_me">Find places near me</string>
+    <string name="testing_centers">Testing Centers</string>
+    <string name="vaccination_centers">Vaccination Centers</string>
+    <string name="nearby_url_api">https://maps.googleapis.com/maps/api/place/nearbysearch/json?</string>
 </resources>
