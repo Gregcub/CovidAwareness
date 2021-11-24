@@ -1,4 +1,4 @@
-package com.gac5206.covidawareness;
+package com.gac5206.covidawareness.user;
 
 public class User {
     public String mUserName, mEmail, mCountry, mState, mCity;

@@ -24,7 +24,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
 import com.gac5206.covidawareness.R;
-import com.gac5206.covidawareness.User;
+import com.gac5206.covidawareness.user.User;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.location.FusedLocationProviderClient;

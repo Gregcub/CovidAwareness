@@ -1,4 +1,4 @@
-package com.gac5206.covidawareness;
+package com.gac5206.covidawareness.user;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -23,6 +23,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import com.gac5206.covidawareness.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
