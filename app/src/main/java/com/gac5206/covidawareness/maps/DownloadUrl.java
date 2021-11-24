@@ -1,4 +1,4 @@
-package com.gac5206.covidawareness;
+package com.gac5206.covidawareness.maps;
 
 import android.util.Log;
 
@@ -33,6 +33,7 @@ public class DownloadUrl {
 
             data = buffer.toString();
             Log.d("downloadUrl", data);
+
             reader.close();
 
         }catch(Exception e){

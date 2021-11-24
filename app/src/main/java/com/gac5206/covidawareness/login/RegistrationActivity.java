@@ -51,35 +51,6 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         register.setOnClickListener(this);
 
 
-
-
-
-
-        // Getting the database instance
-//        UserDatabase uData = UserDatabase.getInstance(getApplicationContext());
-//        final UserDao uDao = uData.userDao();
-//
-//        register.setOnClickListener(view -> {
-//            UserEntity ue = new UserEntity();
-//            ue.setEmail(email.getText().toString());
-//            ue.setUserName(username.getText().toString());
-//            ue.setPassword(password.getText().toString());
-//            ue.setCountry(country.getText().toString());
-//            ue.setState(state.getText().toString());
-//            ue.setCity(city.getText().toString());
-//
-//            if(validate(ue)){
-//
-//                uDao.registredUser(ue);
-//                Toast.makeText(getApplicationContext(), username.getText().toString()+" Registered!", Toast.LENGTH_SHORT).show();
-//
-//            }else {
-//
-//                Toast.makeText(RegistrationActivity.this, "All fields required!", Toast.LENGTH_SHORT).show();
-//
-//            }
-//
-//        });
     }
 
 

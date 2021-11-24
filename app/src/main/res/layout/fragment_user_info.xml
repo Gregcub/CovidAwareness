@@ -21,15 +21,6 @@
         android:textSize="50sp"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/edit_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/edit_profile"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
@@ -91,55 +82,42 @@
             android:textSize="20sp" />
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/vaccination_card"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/vaccination_card"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
 
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/userinfo_buttons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/find_places_near_me"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            />
-
-        <Button
-            android:id="@+id/test_centers"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/testing_centers"
-            />
-
-        <Button
-            android:id="@+id/vac_centers"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/vaccination_centers"
-            />
+            <Button
+                android:id="@+id/upload_img"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ic_baseline_file_upload_24"
+                android:backgroundTint="@color/white"
+                android:backgroundTintMode="add"
+                android:elevation="2dp"
+                />
+        </LinearLayout>
 
 
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/vac_card_image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"/>
+
 
 
 
 
+    </LinearLayout>
 
 
 

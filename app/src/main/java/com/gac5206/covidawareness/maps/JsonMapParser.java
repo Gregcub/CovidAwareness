@@ -1,4 +1,4 @@
-package com.gac5206.covidawareness;
+package com.gac5206.covidawareness.maps;
 
 import android.util.Log;
 
@@ -9,7 +9,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class JsonMapParser {
 
@@ -17,8 +16,8 @@ public class JsonMapParser {
 
         HashMap<String,String> googlePlaceMap = new HashMap<String, String>();
 
-        String name = "-NA-";
-        String vicinity = "-NA-";
+        String name = "";
+        String vicinity = "";
         String lat = "";
         String lng = "";
 
@@ -32,8 +31,6 @@ public class JsonMapParser {
                 name = obj.getString("vicinity");
             }
 
-
-//            name = obj.getString("name");
             lat = obj.getJSONObject("geometry")
                     .getJSONObject("location").getString("lat");
             lng = obj.getJSONObject("geometry")
@@ -43,7 +40,7 @@ public class JsonMapParser {
             googlePlaceMap.put("lat", lat);
             googlePlaceMap.put("lng",lng);
 
-            Log.d("getPlace", "Putting Places");
+            Log.d("getPlaceName", name);
 
         } catch (JSONException e) {
             Log.d("getPlace", "Error");

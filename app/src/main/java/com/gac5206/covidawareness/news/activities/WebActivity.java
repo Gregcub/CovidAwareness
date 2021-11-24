@@ -8,7 +8,6 @@ import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -17,7 +16,6 @@ import com.gac5206.covidawareness.news.api.NewsAPIModel;
 import com.gac5206.covidawareness.news.api.NewsApiAdapter;
 import com.gac5206.covidawareness.news.recycler.NewsAdapter;
 import com.gac5206.covidawareness.news.room.News;
-import com.gac5206.covidawareness.news.room.NewsDao;
 import com.gac5206.covidawareness.news.room.NewsViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -27,8 +25,6 @@ import java.util.List;
 public class WebActivity extends AppCompatActivity {
     FloatingActionButton saveNews, closeNews;
 
-    private NewsDao newsDao;
-    private LiveData<List<News>> allNews;
     ArrayList<NewsAPIModel> mNewsArrayList;
     NewsApiAdapter adapter;
     NewsAdapter newsAdapter;
@@ -82,9 +78,6 @@ public class WebActivity extends AppCompatActivity {
                 break;
             case R.id.close_news:
                 startActivity(new Intent(this, NewsActivity.class));
-//                if(getFragmentManager().getBackStackEntryCount() > 0){
-//                    getFragmentManager().popBackStack();
-//                }
 
                 Toast.makeText(this, "Closed news!", Toast.LENGTH_LONG).show();
                 break;
@@ -103,7 +96,6 @@ public class WebActivity extends AppCompatActivity {
             description = getIntent().getStringExtra("description");
             published = getIntent().getStringExtra("published");
             imageUrl = getIntent().getStringExtra("image");
-//            Toast.makeText(this, url, Toast.LENGTH_LONG).show();
         }
 
         News news = new News(author, "Contents2", description, published, "Source23",title, url, imageUrl);

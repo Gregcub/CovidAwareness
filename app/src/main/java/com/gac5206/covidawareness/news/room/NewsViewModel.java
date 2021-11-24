@@ -6,9 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.gac5206.covidawareness.news.room.News;
-import com.gac5206.covidawareness.news.room.NewsRepository;
-
 import java.util.List;
 
 public class NewsViewModel extends AndroidViewModel {

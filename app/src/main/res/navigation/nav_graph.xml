@@ -28,7 +28,7 @@
 
     <fragment
         android:id="@+id/nav_maps"
-        android:name="com.gac5206.covidawareness.MapsFragment"
+        android:name="com.gac5206.covidawareness.maps.MapsFragment"
         android:label="@string/map"
         tools:layout="@layout/fragment_maps"
         >

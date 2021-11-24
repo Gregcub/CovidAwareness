@@ -40,4 +40,6 @@
     <string name="testing_centers">Testing Centers</string>
     <string name="vaccination_centers">Vaccination Centers</string>
     <string name="nearby_url_api">https://maps.googleapis.com/maps/api/place/nearbysearch/json?</string>
+    <string name="upload_vaccination_card">upload vaccination card...</string>
+    <string name="fab">fab</string>
 </resources>

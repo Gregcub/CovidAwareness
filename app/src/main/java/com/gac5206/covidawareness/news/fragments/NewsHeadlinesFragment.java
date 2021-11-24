@@ -71,10 +71,6 @@ public class NewsHeadlinesFragment extends Fragment {
 
 
 
-
-
-        
-
         return view;
     }
 

@@ -1,6 +1,4 @@
-package com.gac5206.covidawareness;
-
-import static android.content.ContentValues.TAG;
+package com.gac5206.covidawareness.maps;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -12,17 +10,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
-import android.os.AsyncTask;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-
-import android.os.Looper;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,33 +19,26 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.gac5206.covidawareness.news.activities.NewsActivity;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
+
+import com.gac5206.covidawareness.R;
+import com.gac5206.covidawareness.User;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
-import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.libraries.places.compat.Place;
-import com.google.android.libraries.places.compat.ui.PlaceAutocomplete;
-import com.google.android.libraries.places.compat.ui.PlaceAutocompleteFragment;
-import com.google.android.libraries.places.compat.ui.PlaceSelectionListener;
-import com.google.android.libraries.places.compat.ui.SupportPlaceAutocompleteFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -65,19 +46,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Objects;
 
 
 public class MapsFragment extends Fragment implements OnMapReadyCallback {
@@ -99,16 +67,12 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
     public static final String MAPVIEW_BUNDLE_KEY = "MapViewBundleKey";
     private boolean Permissions = false;
     double currLat, currLong;
-    private String[] placeList, placeName;
     public static final int RADIUS = 15000;
-    private MapFragment mapFragment;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
     }
 
     @Override
@@ -122,20 +86,12 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
 
 
 
-
         //Getting user information for location
         user = FirebaseAuth.getInstance().getCurrentUser();
         ref = FirebaseDatabase.getInstance().getReference("Users");
         userID = user.getUid();
 
-        placeList = new String[]{"covid testing center", "covid vaccination center", "hospital"};
-        placeName = new String[]{"Covid Testing Centers", "Covid Vaccination Centers", "Hospitals"};
-
         client = LocationServices.getFusedLocationProviderClient(requireContext());
-
-        //Initializing map fragment
-        mapFragment = (MapFragment) requireActivity().getFragmentManager().findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
 
         //Initializing the mapview
         mapView = (MapView) view.findViewById(R.id.map_view);
@@ -146,13 +102,11 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         }
 
 
-
         //Checking requirements
         userInformation();
         checkRequirements();
         locationPermission();
         findLocation();
-//        autoComplete();
 
 
 
@@ -176,36 +130,12 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         vacCenters.setOnClickListener(this::onClick);
 
 
-
         return view;
     }
 
-//    private void autoComplete() {
-//        PlaceAutocompleteFragment autocomplete = (PlaceAutocompleteFragment) requireActivity()
-//                .getFragmentManager().findFragmentById(R.id.map_places);
-//        autocomplete.setOnPlaceSelectedListener(new PlaceSelectionListener() {
-//            @Override
-//            public void onPlaceSelected(Place place) {
-//
-//                String url = getUrl(currLat,currLong,"");
-//                Object[] DataTransfer = new Object[2];
-//                DataTransfer[0] = mGoogleMap;
-//                DataTransfer[1] = url;
-//                Log.d("onClick", url);
-//                GetNearbyPlaces getNearbyPlaces = new GetNearbyPlaces();
-//                getNearbyPlaces.execute(DataTransfer);
-//
-//            }
-//            @Override
-//            public void onError(Status status) {
-//                Log.e("Error", status.getStatusMessage());
-//            }
-//
-//
-//        });
-//
-//    }
 
+
+    @NonNull
     private String getUrl(double lat, double lng, String nearby) {
         
         StringBuilder sb = new StringBuilder(getString(R.string.nearby_url_api));
@@ -221,21 +151,50 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
     }
 
 
-
     private void onClick(@NonNull View view) {
         switch(view.getId()){
 
             case R.id.test_centers:
-                getUrl(currLat,currLong,"covid_testing_center");
-
+                findTestingCenters();
                 break;
             case R.id.vac_centers:
-                getUrl(currLat,currLong,"covid vaccination center");
+                findVacCenters();
                 break;
 
         }
 
 
+    }
+
+    private void findVacCenters() {
+        String url = getUrl(currLat,currLong,"covid_vaccination_center");
+        Object[] DataTransfer = new Object[2];
+        DataTransfer[0] = mGoogleMap;
+        DataTransfer[1] = url;
+        Log.d("onClick", url);
+        GetNearbyPlaces getNearbyPlaces = new GetNearbyPlaces();
+        getNearbyPlaces.execute(DataTransfer);
+    }
+
+    private void findTestingCenters() {
+        String url = getUrl(currLat,currLong,"covid_testing_center");
+        Object[] DataTransfer = new Object[2];
+        DataTransfer[0] = mGoogleMap;
+        DataTransfer[1] = url;
+        Log.d("onClick", url);
+        GetNearbyPlaces getNearbyPlaces = new GetNearbyPlaces();
+        getNearbyPlaces.execute(DataTransfer);
+
+    }
+
+    private void findHospitals() {
+        String url = getUrl(currLat,currLong,"hospital");
+        Object[] DataTransfer = new Object[2];
+        DataTransfer[0] = mGoogleMap;
+        DataTransfer[1] = url;
+        Log.d("onClick", url);
+        GetNearbyPlaces getNearbyPlaces = new GetNearbyPlaces();
+        getNearbyPlaces.execute(DataTransfer);
     }
 
 
@@ -278,7 +237,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
     //Checking is good play services is installed
     public boolean checkServices() {
 
-        int available = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(requireContext());
+        int available = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(requireActivity());
 
         if (available == ConnectionResult.SUCCESS) {
             return true;
@@ -348,8 +307,6 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
     //Finding users location
     @SuppressLint("MissingPermission")
     private void findLocation() {
-//        client.getLastLocation()
-//                .addOnSuccessListener(requireActivity(), location -> Log.d(TAG, "location=" + location));
 
         Task<Location> task = client.getLastLocation();
         task.addOnSuccessListener(requireActivity(),location -> {
@@ -358,22 +315,6 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
             mapView.getMapAsync(this);
 
         });
-
-    }
-
-
-    private void updateMap(@NonNull Location location) {
-        LatLng myLatLng = new LatLng(location.getLatitude(), location.getLongitude());
-
-        MarkerOptions myMarker = new MarkerOptions()
-                .position(myLatLng);
-
-        mGoogleMap.clear();
-        mGoogleMap.addMarker(myMarker);
-
-        CameraUpdate update = CameraUpdateFactory.newLatLngZoom(myLatLng, 20);
-
-        mGoogleMap.animateCamera(update);
 
     }
 
@@ -411,11 +352,6 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         if(mGoogleMap != null){
             mGoogleMap.clear();
         }
-
-//        if(locationPermission()) {
-//            client.requestLocationUpdates(locationRequest, locationCallback, Looper.getMainLooper());
-//        }
-
         mapView.onResume();
     }
 

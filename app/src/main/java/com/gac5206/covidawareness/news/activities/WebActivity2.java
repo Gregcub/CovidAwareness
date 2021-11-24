@@ -1,10 +1,5 @@
 package com.gac5206.covidawareness.news.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,8 +7,9 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.gac5206.covidawareness.R;
-import com.gac5206.covidawareness.news.fragments.SavedNewsFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class WebActivity2 extends AppCompatActivity {

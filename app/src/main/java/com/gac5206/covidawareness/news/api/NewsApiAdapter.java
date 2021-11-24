@@ -67,14 +67,14 @@ public class NewsApiAdapter extends RecyclerView.Adapter<NewsApiAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView mSource, mAuthor, mPublished, mTitle, mDescription;
+        TextView mAuthor, mPublished, mTitle, mDescription;
         CardView cardView;
         ImageView mImageView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-//            mSource = itemView.findViewById(R.id.source);
+
             mAuthor = itemView.findViewById(R.id.author);
             mPublished = itemView.findViewById(R.id.published);
             mTitle = itemView.findViewById(R.id.title);

@@ -1,7 +1,12 @@
 package com.gac5206.covidawareness.news.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,22 +17,11 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.bumptech.glide.Glide;
 import com.gac5206.covidawareness.R;
 import com.gac5206.covidawareness.news.recycler.NewsAdapter;
-import com.gac5206.covidawareness.news.room.NewsViewModel;
 import com.gac5206.covidawareness.news.room.News;
+import com.gac5206.covidawareness.news.room.NewsViewModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 

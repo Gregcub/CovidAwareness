@@ -9,8 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.gac5206.covidawareness.R;
-import com.gac5206.covidawareness.covid.CovidHolder;
-import com.gac5206.covidawareness.covid.CovidItems;
 
 import java.util.ArrayList;
 

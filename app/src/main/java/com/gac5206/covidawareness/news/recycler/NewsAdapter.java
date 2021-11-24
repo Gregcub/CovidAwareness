@@ -50,7 +50,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
         });
 
 
-//        holder.newsSource.setText(currentNews.getSource());
             holder.newsPublished.setText("Published: " + currentNews.getPublished());
             holder.newsTitle.setText(currentNews.getTitle());
             holder.newsAuthor.setText(currentNews.getAuthor());
@@ -81,7 +80,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
 
 
     static class NewsHolder extends RecyclerView.ViewHolder {
-//        private TextView newsSource;
         private TextView newsPublished;
         private TextView newsTitle;
         private TextView newsDescription;
@@ -94,7 +92,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
         public NewsHolder(@NonNull View itemView) {
             super(itemView);
 
-//            newsSource = itemView.findViewById(R.id.source);
             cardView = itemView.findViewById(R.id.news_card);
             newsPublished = itemView.findViewById(R.id.published);
             newsTitle = itemView.findViewById(R.id.title);

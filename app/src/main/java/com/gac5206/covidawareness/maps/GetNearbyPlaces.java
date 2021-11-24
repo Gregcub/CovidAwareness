@@ -1,4 +1,4 @@
-package com.gac5206.covidawareness;
+package com.gac5206.covidawareness.maps;
 
 import android.os.AsyncTask;
 import android.util.Log;
@@ -51,7 +51,7 @@ public class GetNearbyPlaces extends AsyncTask<Object, String, String> {
             HashMap<String, String> googlePlace = nearbyPlaces.get(i);
             double lat = Double.parseDouble(Objects.requireNonNull(googlePlace.get("lat")));
             double lng = Double.parseDouble(Objects.requireNonNull(googlePlace.get("lng")));
-            String name = googlePlace.get("place_name");
+            String name = googlePlace.get("name");
             String vicinity = googlePlace.get("vicinity");
             LatLng latLng = new LatLng(lat,lng);
             markerOptions.position(latLng);
@@ -59,7 +59,7 @@ public class GetNearbyPlaces extends AsyncTask<Object, String, String> {
             mGoogleMap.addMarker(markerOptions);
             markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
             mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-            mGoogleMap.animateCamera(CameraUpdateFactory.zoomTo(10));
+            mGoogleMap.animateCamera(CameraUpdateFactory.zoomTo(12));
 
         }
 
