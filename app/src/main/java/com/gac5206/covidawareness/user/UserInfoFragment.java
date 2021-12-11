@@ -3,6 +3,7 @@ package com.gac5206.covidawareness.user;
 import static android.app.Activity.RESULT_OK;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -89,6 +90,7 @@ public class UserInfoFragment extends Fragment {
         ref.child(userID).addListenerForSingleValueEvent(new ValueEventListener(){
 
 
+
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User userProfile = snapshot.getValue(User.class);
@@ -108,7 +110,7 @@ public class UserInfoFragment extends Fragment {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
-                Toast.makeText(getActivity(), "Error", Toast.LENGTH_LONG).show();
+                Toast.makeText(requireActivity(), "Error", Toast.LENGTH_LONG).show();
 
             }
         });
@@ -120,6 +122,7 @@ public class UserInfoFragment extends Fragment {
 
     }
 
+
     private void onClick(View view) {
 
 
@@ -127,13 +130,11 @@ public class UserInfoFragment extends Fragment {
 
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
-        if(intent.resolveActivity(requireActivity().getPackageManager()) != null){
+        if(intent.resolveActivity(getContext().getPackageManager()) != null){
             startActivityForResult(intent,REQUEST_IMAGE_CAPTURE);
         }else{
-            Toast.makeText(requireContext(),"No available app that supports this action", Toast.LENGTH_LONG).show();
+            Toast.makeText(requireActivity(),"No available app that supports this action", Toast.LENGTH_LONG).show();
         }
-
-        Toast.makeText(getActivity(), "Button Clicked!", Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -145,7 +146,7 @@ public class UserInfoFragment extends Fragment {
             vacCard = (Bitmap) bundle.get("data");
             vac_card.setImageBitmap(vacCard);
 
-            Toast.makeText(requireContext(),data.toString(),Toast.LENGTH_LONG).show();
+            Toast.makeText(requireActivity(),data.toString(),Toast.LENGTH_LONG).show();
 
 
 

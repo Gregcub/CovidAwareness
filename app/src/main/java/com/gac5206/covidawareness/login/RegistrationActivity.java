@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class RegistrationActivity extends AppCompatActivity implements View.OnClickListener{
@@ -28,12 +29,15 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     Button register;
 
     private FirebaseAuth mAuth;
-
+    private FirebaseDatabase root;
+    private DatabaseReference ref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
+
+
 
         email = findViewById(R.id.email);
         username = findViewById(R.id.userName);
@@ -104,7 +108,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                         if(task.isSuccessful()){
                             User user = new User(userName, userEmail, userCountry, userCity, userState);
 
-                            FirebaseDatabase.getInstance().getReference("Users")
+                             FirebaseDatabase.getInstance().getReference("Users")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>(){
 
@@ -112,10 +116,11 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                                 public void onComplete(@NonNull Task<Void> task) {
 
                                     if (task.isSuccessful()) {
+//                                        Toast.makeText(RegistrationActivity.this, FirebaseDatabase.getInstance().getReference().toString(), Toast.LENGTH_LONG).show();
                                         Toast.makeText(RegistrationActivity.this, userName+" has been registered successfully!", Toast.LENGTH_LONG).show();
 
                                     }else{
-                                        Toast.makeText(RegistrationActivity.this, "Failed to register!", Toast.LENGTH_LONG).show();
+//                                        Toast.makeText(RegistrationActivity.this, "Failed to register!", Toast.LENGTH_LONG).show();
                                     }
                                     progressBar.setVisibility(View.INVISIBLE);
 
