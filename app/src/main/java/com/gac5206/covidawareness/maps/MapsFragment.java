@@ -65,7 +65,6 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
     private final int PERMISSIONS_REQUEST_ENABLE_GPS = 0;
     private final int PERMISSIONS_SERVICES = 0;
     public static final String MAPVIEW_BUNDLE_KEY = "MapViewBundleKey";
-    private boolean Permissions = false;
     double currLat, currLong;
     public static final int RADIUS = 15000;
 
@@ -94,7 +93,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         client = LocationServices.getFusedLocationProviderClient(requireContext());
 
         //Initializing the mapview
-        mapView = (MapView) view.findViewById(R.id.map_view);
+        mapView = view.findViewById(R.id.map_view);
         if (mapView != null) {
             mapView.onCreate(null);
             mapView.onResume();
